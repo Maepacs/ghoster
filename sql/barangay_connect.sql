@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2025 at 09:23 PM
+-- Generation Time: Sep 14, 2025 at 10:34 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,10 +39,7 @@ CREATE TABLE `activity_logs` (
 --
 
 INSERT INTO `activity_logs` (`log_id`, `user_id`, `action`, `created_at`) VALUES
-(1, 1, 'Registered new admin', '2025-09-09 18:28:49'),
-(2, 1, 'OTP verified (Email) and account approved', '2025-09-09 18:29:26'),
-(3, 1, 'Admin logged in', '2025-09-09 18:34:41'),
-(4, 1, 'Admin logged in', '2025-09-09 18:39:17');
+(1, 1, 'User registered as Admin', '2025-09-14 08:26:50');
 
 -- --------------------------------------------------------
 
@@ -120,13 +117,6 @@ CREATE TABLE `otp` (
   `expiry_time` datetime NOT NULL,
   `is_used` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `otp`
---
-
-INSERT INTO `otp` (`otp_id`, `user_id`, `otp_code`, `otp_type`, `expiry_time`, `is_used`) VALUES
-(1, 1, '563899', 'Email', '2025-09-09 20:33:49', 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +207,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password_hash`, `role`, `status`, `date_registered`) VALUES
-(1, 'Admin', '$2y$10$dlmXn6R0jk8WWLy7dsdrTuTX30aD5zlvUkscDoqkbJ1A2fjj2BIh2', 'Admin', 'Approved', '2025-09-09 18:28:49');
+(1, 'admin', '$2y$10$QGAslslu0sCg265nP5H7C.3algHcUsOoOp6fwuYfiojKTAtSQtr7a', 'Admin', 'Approved', '2025-09-14 08:26:50');
 
 -- --------------------------------------------------------
 
@@ -329,7 +319,7 @@ ALTER TABLE `user_verification`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `barangay_officials`
@@ -359,7 +349,7 @@ ALTER TABLE `household`
 -- AUTO_INCREMENT for table `otp`
 --
 ALTER TABLE `otp`
-  MODIFY `otp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `otp_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `password_resets`
@@ -383,7 +373,7 @@ ALTER TABLE `sms_logs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_verification`
